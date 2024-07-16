@@ -7,7 +7,8 @@ export function Footer() {
         </span>
 
         <span className="text-xs font-medium text-muted-foreground">
-          Built using <OtherLink href="https://nextjs.org" label="Next.js (TypeScript)" /> +{" "}
+          Built using{" "}
+          <OtherLink href="https://nextjs.org" label="Next.js (TypeScript)" /> +{" "}
           <OtherLink href="https://tailwindcss.com" label="Tailwindcss" /> +{" "}
           <OtherLink href="https://ui.shadcn.com" label="Shadcn/ui" /> &amp;{" "}
           <OtherLink href="https://velite.js.org" label="Velite" />
@@ -23,7 +24,7 @@ function OtherLink({ href, label }: { href: string; label: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-medium text-foreground"
+      className="font-medium text-foreground rounded-md outline outline-offset-2 outline-0 focus-visible:outline-2 outline-primary"
     >
       {label}
     </a>

@@ -26,10 +26,10 @@ export default function RootLayout({
       <body
         className={cn(
           "antialiased",
-          "[&::-webkit-scrollbar]:w-2",
-          "[&::-webkit-scrollbar-track]:bg-background",
-          "[&::-webkit-scrollbar-thumb]:bg-muted/70",
-          "[&::-webkit-scrollbar-thumb]:rounded-full",
+          // "[&::-webkit-scrollbar]:w-2",
+          // "[&::-webkit-scrollbar-track]:bg-background",
+          // "[&::-webkit-scrollbar-thumb]:bg-muted-foreground",
+          // "[&::-webkit-scrollbar-thumb]:rounded-full",
           inter.className,
           GeistSans.variable
         )}

@@ -8,7 +8,7 @@ export function Projects() {
     <SectionContainer>
       <SectionSubHeader
         text="Featured projects"
-        sub="click or tap to read more."
+        // sub="click or tap to read more."
       />
       <ProjectsContainer>
         {/* {sampleData.map((project, idx) => (
