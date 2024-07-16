@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Enoabasi</h1>
+<p align="center">Portfolio & personal website of Enoabasi Essien</p>
+<p align="center">Software Developer</p>
+<hr />
 
-## Getting Started
+### Table Of Contents
 
-First, run the development server:
+- <a href="#introduction">👋Introduction</a>
+- <a href="#features">🖼️Features</a>
+- <a href="#built-using-">⛏️Built Using</a>
+- <a href="#run-locally">🖥️Run Locally</a>
+- <a href="#license">📄License</a>
+- <a href="#conclusion">🧹Conclusion</a>
+
+## Introduction
+
+Welcome to Enoabasi, portfolio and personal website of Enoabasi Essien, Software Developer. Feel free to explore the site.
+
+## Features
+
+- Pages
+  - about
+  - projects
+  - blog
+  - newsletter
+  - store
+  - contact
+- Ligth/Dark mode support
+
+## Built Using
+
+- React
+- TypeScript
+- Tailwindcss
+- Next.js
+- Shadcn UI
+- Velite
+- Framer motion
+
+## Run Locally
+
+Clone the reporsitory from GitHub then set the project name to your desired choice.
+
+```bash
+git clone https://github.com/fromenoabasi/enoabasi.git "app-name"
+```
+
+Change directory to the project's directory.
+
+```bash
+cd "app-name"
+```
+
+Install the project dependencies.
+
+```bash
+npm install
+```
+
+Run an initial lint on the project.
+
+```bash
+npm run lint
+```
+
+Run the developer server.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You are free to use the project to build your own portfolio. A shoutout would be nice ⚡. **<a href="/LICENSE.md">See more on License</a>**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Conclusion
 
-## Learn More
+I will be updating my portfolio frequently and adding the latest technologies and new technologies I come across as well content on the blog for topics related to Software development, and Daily life.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for visiting. ~ Enoabasi.
