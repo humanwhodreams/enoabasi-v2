@@ -99,7 +99,7 @@
 } */
 
 /* coasty orange */
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 5%;
@@ -143,6 +143,54 @@
     --destructive: 0 95.54% 58.57%;
     --destructive-foreground: 0 0% 98%;
     --ring: 24.68 0.04% 31.83%;
+  }
+} */
+
+/* grain of salt */
+@layer base {
+  :root {
+    --background: 231 14% 10%;
+    --foreground: 60 36% 96%;
+    --muted: 231 12% 15%;
+    --muted-foreground: 231 12% 65%;
+    --popover: 231 14% 7%;
+    --popover-foreground: 0 0% 100%;
+    --card: 231 14% 8%;
+    --card-foreground: 0 0% 100%;
+    --border: 231 4% 15%;
+    --input: 231 4% 18%;
+    --primary: 220 13% 86%;
+    --primary-foreground: 220 13% 26%;
+    --secondary: 220 3% 25%;
+    --secondary-foreground: 220 3% 85%;
+    --accent: 231 14% 25%;
+    --accent-foreground: 231 14% 85%;
+    --destructive: 6 92% 53%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 220 13% 86%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 231 14% 10%;
+    --foreground: 60 36% 96%;
+    --muted: 231 12% 15%;
+    --muted-foreground: 231 12% 65%;
+    --popover: 231 14% 7%;
+    --popover-foreground: 0 0% 100%;
+    --card: 231 14% 8%;
+    --card-foreground: 0 0% 100%;
+    --border: 231 4% 15%;
+    --input: 231 4% 18%;
+    --primary: 220 13% 86%;
+    --primary-foreground: 220 13% 26%;
+    --secondary: 220 3% 25%;
+    --secondary-foreground: 220 3% 85%;
+    --accent: 231 14% 25%;
+    --accent-foreground: 231 14% 85%;
+    --destructive: 6 92% 53%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 220 13% 86%;
   }
 }
 
