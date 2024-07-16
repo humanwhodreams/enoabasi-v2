@@ -24,7 +24,7 @@ export function ProjectCard({
   return (
     <Link
       href={website}
-      className="p-4 space-y-4 transition-colors duration-300 rounded-lg hover:bg-muted dark:hover:bg-muted/50"
+      className="p-4 space-y-4 transition-colors duration-300 rounded-lg hover:bg-muted dark:hover:bg-muted/50 outline outline-offset-2 outline-0 focus-visible:outline-2 outline-primary"
     >
       <div className="space-y-2">
         <h3 className="font-medium">

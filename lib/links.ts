@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 
-const nav_links = [
+const navLinks = [
   {
     label: "Home",
     href: "/",
@@ -27,13 +27,13 @@ const nav_links = [
   },
 ];
 
-const source_link = {
+const sourceLink = {
   label: "GitHub",
   href: "https://github.com/fromenoabasi",
   icon: FaGithub,
 };
 
-const social_links = [
+const socialLinks = [
   {
     label: "Twitter",
     href: "https://x.com/from_enoabasi",
@@ -44,7 +44,7 @@ const social_links = [
     href: "https://instagram.com/fromenoabasi",
     icon: FaInstagram,
   },
-  source_link,
+  sourceLink,
 ];
 
-export { nav_links, social_links, source_link };
+export { navLinks, socialLinks, sourceLink };

@@ -1,37 +1,7 @@
-import { ProjectCard, ProjectsContainer } from "@/components/projects";
-
-import { More } from "@/components/more";
+import { Placeholder } from "@/components/place-holder";
+import { ProjectsContainer } from "@/components/projects";
 import { SectionContainer } from "@/components/section-container";
 import { SectionSubHeader } from "@/components/section-headings";
-
-const sampleData = [
-  {
-    title: "Recallify",
-    tldr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quam.",
-    website: "https://example.com",
-    tags: [
-      "Android",
-      "Java",
-      "Kotlin",
-      "Jetpack compose",
-      "Firebase",
-      "Tensorflow",
-    ],
-  },
-  {
-    title: "Nobasi Interactive Studio",
-    tldr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quam.",
-    website: "https://example.com",
-    tags: [
-      "Next.js",
-      "React",
-      "Tailwindcss",
-      "TypeScript",
-      "Velite",
-      "Shadcn/ui",
-    ],
-  },
-];
 
 export function Projects() {
   return (
@@ -41,7 +11,7 @@ export function Projects() {
         sub="click or tap to read more."
       />
       <ProjectsContainer>
-        {sampleData.map((project, idx) => (
+        {/* {sampleData.map((project, idx) => (
           <ProjectCard
             key={idx}
             index={idx}
@@ -55,7 +25,8 @@ export function Projects() {
           <div className="flex items-center justify-end w-full">
             <More label="All projects" href="/projects" />
           </div>
-        </div>
+        </div> */}
+        <Placeholder text="🏗️ Project is under construction" />
       </ProjectsContainer>
     </SectionContainer>
   );
