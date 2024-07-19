@@ -2,7 +2,11 @@ import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
-  content: ["./components/**/*.{md,mdx,ts,tsx}", "./app/**/*.{md,mdx,ts,tsx}"],
+  content: [
+    "./components/**/*.{md,mdx,ts,tsx}",
+    "./app/**/*.{md,mdx,ts,tsx}",
+    "./content/**/*.{md,mdx}",
+  ],
   prefix: "",
   theme: {
     container: {
