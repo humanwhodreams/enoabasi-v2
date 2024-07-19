@@ -149,25 +149,25 @@
 /* grain of salt */
 @layer base {
   :root {
-    --background: 231 14% 10%;
-    --foreground: 60 36% 96%;
-    --muted: 231 12% 15%;
-    --muted-foreground: 231 12% 65%;
-    --popover: 231 14% 7%;
-    --popover-foreground: 0 0% 100%;
-    --card: 231 14% 8%;
-    --card-foreground: 0 0% 100%;
-    --border: 231 4% 15%;
-    --input: 231 4% 18%;
-    --primary: 220 13% 86%;
-    --primary-foreground: 220 13% 26%;
-    --secondary: 220 3% 25%;
-    --secondary-foreground: 220 3% 85%;
-    --accent: 231 14% 25%;
-    --accent-foreground: 231 14% 85%;
-    --destructive: 6 92% 53%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 220 13% 86%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142.1 76.2% 36.3%;
     --radius: 0.5rem;
   }
 

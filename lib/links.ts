@@ -1,4 +1,10 @@
-import { DraftingCompass, Home, Origami, Send } from "lucide-react";
+import {
+  DraftingCompass,
+  Home,
+  NotebookPen,
+  Origami,
+  Send,
+} from "lucide-react";
 
 import { FaGithub } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
@@ -19,6 +25,11 @@ const navLinks = [
     label: "Projects",
     href: "/projects",
     icon: DraftingCompass,
+  },
+  {
+    label: "Blog",
+    href: "/blog",
+    icon: NotebookPen,
   },
   {
     label: "Contact",
