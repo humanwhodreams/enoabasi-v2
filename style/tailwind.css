@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* shadcn theme */
-/* @layer base {
+@layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -48,7 +48,7 @@
     --input: 240 3.7% 15.9%;
     --ring: 142.4 71.8% 29.2%;
   }
-} */
+}
 
 /* ui jln themes */
 /* @layer base {
@@ -147,7 +147,7 @@
 } */
 
 /* grain of salt */
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -192,7 +192,7 @@
     --destructive-foreground: 0 0% 100%;
     --ring: 220 13% 86%;
   }
-}
+} */
 
 @layer base {
   * {

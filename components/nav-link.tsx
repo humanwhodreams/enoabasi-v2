@@ -25,7 +25,7 @@ export function NavLink({ children,label, href }: Props) {
         "inline-flex items-center justify-center px-3 py-1 rounded-md font-medium bg-transparent duration-300 group transition-colors",
         // active path
         isActive
-          ? "underline underline-offset-2 decoration-wavy decoration-primary"
+          ? "underline underline-offset-4 decoration-wavy decoration-primary"
           : "",
         // focus
         "outline outline-offset-2 outline-0 focus-visible:outline-2",

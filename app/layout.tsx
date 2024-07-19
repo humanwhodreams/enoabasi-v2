@@ -38,7 +38,7 @@ export default function RootLayout({
             className="absolute inset-0 object-cover w-full h-full -z-50"
           />
           <Header />
-          <main className="flex-1 my-12">{children}</main>
+          <main className="flex-1 w-full my-12">{children}</main>
           <Footer />
         </Providers>
       </body>
