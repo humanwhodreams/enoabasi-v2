@@ -1,4 +1,12 @@
-import * as React from "react";
+import { BlogNavigation } from "@/components/blog-navigation";
+import { MdxComponents } from "@/components/mdx-components";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { SectionContainer } from "@/components/section-container";
+import { TableOfContents } from "@/components/table-of-contents";
+import { formatDate } from "@/lib/date";
+import { getPostFromParams } from "@/lib/v-functions";
+import { notFound } from "next/navigation";
+import { posts } from "#vContent";
 
 interface Props {
   params: {
@@ -6,10 +14,45 @@ interface Props {
   };
 }
 
-export default function SpecificBlog({ params }: Props) {
+export async function generateStaticParams(): Promise<Props["params"][]> {
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export default async function SpecificBlog({ params }: Props) {
+  const post = await getPostFromParams(params);
+
+  if (!post || post.draft) {
+    notFound();
+  }
+
   return (
-    <main>
-      <div>Welcome to Page &mdash; {params.slug}</div>
-    </main>
+    <SectionContainer className="relative">
+      <div className="hidden text-sm xl:block">
+        <div className="fixed top-[10rem] right-[10rem] -mt-10 pt-4">
+          <ScrollArea className="pb-10">
+            <div className="sticky top-[10rem] -mt-10 h-[calc(100vh-3.5rem)] py-12 px-4">
+              <TableOfContents toc={post.toc} />
+            </div>
+          </ScrollArea>
+        </div>
+      </div>
+
+      <BlogNavigation pageTitle={post.title} />
+      <article className="font-sans prose lg:prose-lg dark:prose-invert">
+        <h1 className="text-xl font-bold md:text-3xl">{post.title}</h1>
+        {post.description ? (
+          <p className="before:content-['~_'] text-primary text-sm md:text-base md:font-medium">
+            {post.description}
+          </p>
+        ) : null}
+        <ul className="text-sm">
+          <li>Written by: {post.authors}</li>
+          <li>Posted: {formatDate(post.date)}</li>
+        </ul>
+        <MdxComponents code={post.content} />
+      </article>
+    </SectionContainer>
   );
 }
