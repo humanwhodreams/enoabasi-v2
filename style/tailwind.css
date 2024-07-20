@@ -1,6 +1,10 @@
 @tailwind base;
+
+@import "./mdx.css";
+
 @tailwind components;
 @tailwind utilities;
+
 
 /* shadcn theme */
 @layer base {

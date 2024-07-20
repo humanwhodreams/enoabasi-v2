@@ -3,7 +3,6 @@ import "@/style/tailwind.css";
 import { Footer } from "@/components/footer";
 import { GeistSans } from "geist/font/sans";
 import { Header } from "@/components/header";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Providers } from "./providers";
 import { cn } from "@/lib/utils";
@@ -30,13 +29,6 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <Image
-            src={"/nnoise.svg"}
-            alt="background"
-            width={0}
-            height={0}
-            className="absolute inset-0 object-cover w-full h-full -z-50"
-          />
           <Header />
           <main className="flex-1 w-full my-12">{children}</main>
           <Footer />

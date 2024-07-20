@@ -26,7 +26,7 @@ export function BlogNavigation({ pageTitle }: { pageTitle: string }) {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage className="tracking-wide underline underline-offset-4 decoration-primary text-foreground">
+          <BreadcrumbPage>
             {pageTitle}
           </BreadcrumbPage>
         </BreadcrumbItem>

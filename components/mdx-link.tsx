@@ -37,7 +37,7 @@ export function MdxLink({
         className="flex items-center p-1 font-semibold tracking-tight no-underline transition-colors rounded-md hover:bg-muted outline outline-offset-2 outline-0 focus-visible:outline-2 outline-primary"
       >
         {children}
-        <FaHashtag role="img" className="ml-1 transition-opacity h-[1ch] lg:opacity-0 lg:group-hover:opacity-100" />
+        <FaHashtag role="img" className="hidden lg:block ml-1 transition-opacity h-[1ch] lg:opacity-0 lg:group-hover:opacity-100" />
       </Link>
     </Component>
   );

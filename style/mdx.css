@@ -1,0 +1,47 @@
+figure[data-rehype-pretty-code-figure] pre {
+  @apply px-0 rounded-none;
+}
+
+div[data-rehype-pretty-code-title] {
+  @apply text-sm font-medium border border-border bg-muted/40 p-2 text-muted-foreground rounded-t-md;
+}
+
+figure[data-rehype-pretty-code-figure] code {
+  @apply text-sm !leading-loose border-0 p-0;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] {
+  counter-reset: line;
+}
+
+figure[data-rehype-pretty-code-figure] code[data-line-numbers] > span[data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 text-right text-muted-foreground;
+}
+
+figure[data-rehype-pretty-code-figure] span[data-line] {
+  @apply border-l-4 border-l-transparent px-3;
+}
+
+figure[data-rehype-pretty-code-figure] span[data-highlighted-line] {
+  background: rgba(200, 200, 255, 0.1);
+  @apply border-l-blue-400;
+}
+
+figure[data-rehype-pretty-code-figure] mark[data-highlighted-chars] {
+  @apply rounded bg-zinc-600/50;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
+
+[data-rehype-pretty-code-figure] [data-chars-id] {
+  @apply border-b-2 p-1 shadow-none;
+}
+
+span[data-rehype-pretty-code-figure] code {
+  @apply before:content-['_'] after:content-['_'] rounded p-1 text-sm
+}
+
+span[data-rehype-pretty-code-figure] code span[data-line] {
+  @apply rounded
+}
