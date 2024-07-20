@@ -18,7 +18,6 @@ export function TableOfContents({ toc }: TocProps) {
         ?.flatMap((item) => [item.url, item?.items?.map((item) => item.url)])
         .flat()
         .filter(Boolean)
-        // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
         .map((id) => id?.split('#')[1]!) ?? [],
 
     [toc],
