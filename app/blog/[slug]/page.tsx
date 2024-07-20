@@ -30,7 +30,7 @@ export default async function SpecificBlog({ params }: Props) {
   return (
     <SectionContainer className="relative">
       <div className="hidden text-sm xl:block">
-        <div className="fixed top-[10rem] right-[10rem] -mt-10 pt-4">
+        <div className="fixed top-[10rem] right-[4rem] -mt-10 pt-4">
           <ScrollArea className="pb-10">
             <div className="sticky top-[10rem] -mt-10 h-[calc(100vh-3.5rem)] py-12 px-4">
               <TableOfContents toc={post.toc} />
