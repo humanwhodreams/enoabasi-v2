@@ -1,11 +1,29 @@
 import { BlogCard } from "@/components/blog-card";
 import { SectionContainer } from "@/components/section-container";
 import { SectionSubHeader } from "@/components/section-headings";
-import { posts } from "#vContent";
+import { type Post, posts } from "#vContent";
 import { sortPosts } from "@/lib/v-functions";
+import { BlogPagination } from "@/components/blog-pagination";
 
-export default async function Blog() {
-  const getSortedPosts = sortPosts(posts.filter((post) => !post.draft));
+const POSTS_PER_PAGE: number = 5;
+
+interface Props {
+  searchParams: {
+    page?: string;
+  };
+}
+
+export default async function Blog({ searchParams }: Props) {
+  const sortedPosts: Post[] = sortPosts(posts.filter((post) => !post.draft));
+
+  const currentPage: number = Number(searchParams.page) || 1;
+
+  const totalPages: number = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
+  const displayedPosts: Post[] = sortedPosts.slice(
+    POSTS_PER_PAGE * (currentPage - 1),
+    POSTS_PER_PAGE * currentPage
+  );
 
   return (
     <>
@@ -15,7 +33,7 @@ export default async function Blog() {
         </div>
 
         <ul className="my-6 space-y-4">
-          {getSortedPosts.map((post) => (
+          {displayedPosts.map((post: Post) => (
             <li key={post.slugAsParams}>
               <BlogCard
                 slug={post.slugAsParams}
@@ -26,6 +44,8 @@ export default async function Blog() {
             </li>
           ))}
         </ul>
+
+        <BlogPagination totalPages={totalPages} className="justify-end mt-4"/>
       </SectionContainer>
     </>
   );
