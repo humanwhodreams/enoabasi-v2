@@ -10,6 +10,7 @@ export function HeroProfile() {
         width={100}
         height={100}
         className="object-cover rounded-md"
+        priority
       />
       <div>
         <p className="text-muted-foreground">
