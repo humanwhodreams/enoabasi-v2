@@ -13,9 +13,12 @@ export function LatestBlog() {
   return (
     <SectionContainer>
       <SectionSubHeader
-        text="Latest post"
+        text="Latest posts"
         linkTo={
-          <Link href="/blog" className="flex items-center font-medium text-muted-foreground hover:underline">
+          <Link
+            href="/blog"
+            className="flex items-center font-medium text-muted-foreground hover:underline"
+          >
             All
             <MoveRight className="flex-shrink-0 ml-2 size-4 text-muted-foreground" />
           </Link>
@@ -27,7 +30,7 @@ export function LatestBlog() {
           <li key={post.slugAsParams}>
             <Link
               href={post.slugAsParams}
-              className="flex flex-wrap items-center px-3 py-1 transition-colors hover:bg-muted outline outline-offset-2 outline-0 focus-visible:outline-2 outline-primary"
+              className="flex flex-wrap items-center p-3 transition-colors sm:justify-between hover:bg-muted outline outline-offset-2 outline-0 focus-visible:outline-2 outline-primary"
             >
               {post.title}
               <span className="flex items-center justify-center ml-4 text-sm text-muted-foreground">
