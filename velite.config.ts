@@ -5,7 +5,7 @@ import { defineConfig } from "velite";
 import { posts } from "./collections/post";
 
 const rehypePrettyCodeOptions: Partial<Options> = {
-  theme: "github-dark",
+  theme: "catppuccin-frappe",
 };
 
 export default defineConfig({

@@ -39,7 +39,7 @@ figure[data-rehype-pretty-code-figure] mark[data-highlighted-chars] {
 }
 
 span[data-rehype-pretty-code-figure] code {
-  @apply before:content-['_'] after:content-['_'] rounded p-1 text-sm
+  @apply before:content-['_'] after:content-['_'] rounded p-1 text-sm font-normal
 }
 
 span[data-rehype-pretty-code-figure] code span[data-line] {
