@@ -1,10 +1,11 @@
+import { getPostFromParams, getReadingTime } from "@/lib/v-functions";
+
 import { BlogNavigation } from "@/components/blog-navigation";
 import { MdxComponents } from "@/components/mdx-components";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SectionContainer } from "@/components/section-container";
 import { TableOfContents } from "@/components/table-of-contents";
 import { formatDate } from "@/lib/date";
-import { getPostFromParams } from "@/lib/v-functions";
 import { notFound } from "next/navigation";
 import { posts } from "#vContent";
 
@@ -27,10 +28,12 @@ export default async function SpecificBlog({ params }: Props) {
     notFound();
   }
 
+  const readingTime = await getReadingTime(post.content);
+
   return (
     <SectionContainer className="relative">
       <div className="hidden text-sm xl:block">
-        <div className="fixed top-[10rem] right-[4rem] -mt-10 pt-4">
+        <div className="fixed top-[10rem] right-[6rem] -mt-10 pt-4 z-10">
           <ScrollArea className="pb-10">
             <div className="sticky top-[10rem] -mt-10 h-[calc(100vh-3.5rem)] py-12 px-4">
               <TableOfContents toc={post.toc} />
@@ -50,6 +53,9 @@ export default async function SpecificBlog({ params }: Props) {
         <ul className="text-sm">
           <li>Written by: {post.authors}</li>
           <li>Posted: {formatDate(post.date)}</li>
+          <li>
+            Reading time: {readingTime} {readingTime >= 2 ? "minutes" : "minute"}
+          </li>
         </ul>
         <MdxComponents code={post.content} />
       </article>

@@ -29,3 +29,23 @@ export async function getPostFromParams(params: {
   }
   return posts.find((post) => post.slug === params.slug);
 }
+
+/**
+ * Gets the reading time of a unique post.
+ *
+ * @param content The mdx content of the post
+ * @returns Reading time in minutes
+ */
+export async function getReadingTime(content: string) {
+  const WORDS_PER_MINUTE: number = 200;
+
+  const strippedContent: string = content.replace(/<\/?[^>]+(>|$)/g, "");
+
+  const wordCount: number = strippedContent
+    .split(/\s+/)
+    .filter((word) => word.length > 0).length;
+
+  const readingTime: number = Math.ceil(wordCount / WORDS_PER_MINUTE);
+
+  return readingTime;
+}

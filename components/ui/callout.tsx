@@ -16,15 +16,24 @@ const IconMap = {
   success: <FaCheck />,
 };
 
+const TitleMap = {
+  default: "Tip",
+  error: "Error",
+  info: "Info",
+  warning: "Warning",
+  success: "Success",
+};
+
 const calloutVariants = cva(
-  "mt-6 flex overflow-x-auto rounded-md border py-2 pr-4",
+  "mt-6 flex flex-col overflow-x-auto rounded-md border p-2 text-base",
   {
     variants: {
       variant: {
         default:
           "border-violet-700 bg-violet-400/40 text-violet-800 dark:border-violet-500/40 dark:bg-violet-900/40 dark:text-violet-300",
         info: "border-blue-700 bg-blue-400/40 text-blue-800 dark:border-blue-500/40 dark:bg-blue-900/40 dark:text-blue-300",
-        error: "border-rose-700 bg-rose-400/40 text-rose-800 dark:border-rose-500/40 dark:bg-rose-900/40 dark:text-rose-300",
+        error:
+          "border-rose-700 bg-rose-400/40 text-rose-800 dark:border-rose-500/40 dark:bg-rose-900/40 dark:text-rose-300",
         warning:
           "border-yellow-700 bg-yellow-400/40 text-yellow-800 dark:border-yellow-500/40 dark:bg-yellow-900/40 dark:text-yellow-300",
         success:
@@ -43,11 +52,14 @@ interface CalloutProps extends VariantProps<typeof calloutVariants> {
 
 export function Callout({ children, variant = "default" }: CalloutProps) {
   return (
-    <div className={cn(calloutVariants({ variant }))}>
-      <div className="pt-1 pl-3 pr-2 text-xl select-none">
-        {IconMap[variant!]}
+    <div className={cn("mb-4",calloutVariants({ variant }))}>
+      <div className="flex items-center">
+        <div className="select-none mr-2 text-[18px]">{IconMap[variant!]}</div>
+        <div className="font-semibold uppercase text-sm">
+          {TitleMap[variant!]}
+        </div>
       </div>
-      <div className="w-full min-w-0 leading-7 [&>p]:m-0 [&_strong]:!text-inherit">
+      <div className="w-full min-w-0 leading-7 [&>p]:m-0 [&_strong]:!text-inherit text-base pl-[24px]">
         {children}
       </div>
     </div>

@@ -1,11 +1,13 @@
-import rehypePrettyCode, { type Options } from "rehype-pretty-code";
+import { postProcess, preProcess } from "@/lib/rehype-pre-raw";
 
 import { authors } from "./collections/author";
 import { defineConfig } from "velite";
 import { posts } from "./collections/post";
+import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 
 const rehypePrettyCodeOptions: Partial<Options> = {
-  theme: "catppuccin-frappe",
+  grid: true,
+  theme: "vesper",
 };
 
 export default defineConfig({
@@ -23,6 +25,10 @@ export default defineConfig({
   },
   mdx: {
     remarkPlugins: [],
-    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+    rehypePlugins: [
+      preProcess,
+      postProcess,
+      [rehypePrettyCode, rehypePrettyCodeOptions],
+    ],
   },
 });

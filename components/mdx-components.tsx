@@ -6,6 +6,7 @@ import { MdxLink } from "./mdx-link";
 import { Callout } from "./ui/callout";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { CodeBlock } from "./code-block";
 
 const sharedComponents = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -29,9 +30,11 @@ const sharedComponents = {
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn(
-        "font-semibold underline text-foreground decoration-primary underline-offset-4",
+        "font-medium underline text-foreground decoration-primary underline-offset-4",
         className
       )}
+      target="_blank"
+      rel="noopener noreferrer"
       {...props}
     />
   ),
@@ -92,11 +95,15 @@ const sharedComponents = {
   ),
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
-      className={cn(" text-primary font-medium underline underline-offset-4", className)}
+      className={cn(
+        " text-primary font-medium underline underline-offset-4",
+        className
+      )}
       {...props}
     />
   ),
   Callout,
+  CodeBlock,
 };
 
 // parse the Velite generated MDX code into a React component function
