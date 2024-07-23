@@ -1,5 +1,5 @@
 figure[data-rehype-pretty-code-figure] {
-  @apply mt-0 p-0.5 border-2 border-muted-foreground/20 rounded-t-none rounded-b-lg
+  @apply mt-0 p-0 border-2 border-muted-foreground/20 rounded-t-none rounded-b-lg
 }
 
 figure[data-rehype-pretty-code-figure] pre {
