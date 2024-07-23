@@ -1,108 +1,224 @@
 ---
 slug: syntax-highlighting-in-mdx
 title: Syntax Highlighting In Mdx
-description: Syntax highlighting, line numbers, line highlights, word highlights
+description: Syntax highlighting, line numbers, line highlights, word highlights and more.
 date: 2024-07-20
 authors:
   - Enoabasi
 ---
 
-[`rehype-pretty-code`](https://github.com/atomiks/rehype-pretty-code) is a Rehype plugin powered by the
-[`shiki`](https://github.com/shikijs/shiki) syntax highlighter that provides beautiful code blocks for Markdown or MDX. It works on both the server at build-time (avoiding runtime syntax highlighting) and on the client for dynamic highlighting.
+## Prerequisites
 
-## Editor-Grade Highlighting
+To get started, I have created a Nextjs project with.
 
-<span className="text-muted-foreground">
-  Enjoy the accuracy and granularity of VS Code's syntax highlighting engine and
-  the popularity of its themes ecosystem — use any VS Code theme you want!
-</span>
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind](https://tailwindcss.com)
 
-## Line Numbers and Line Highlighting
+For the components.
+- [Radix/ui primitives](https://www.radix-ui.com/primitives) via [Shadcn/ui](https://ui.shadcn.com/components) components.
 
-Draw attention to a particular line of code.
+In order to get syntax highlighting in Mdx files we will need the following packages.
 
-```js {4} showLineNumbers
-import { useFloating } from "@floating-ui/react";
+- [Velite](https://velite.js.org)
+- [Rehype-pretty-code](https://rehype-pretty.pages.dev/)
+- [Shiki](https://shiki.style/).
 
-function MyComponent() {
-  const { refs, floatingStyles } = useFloating();
+**Velite** is a tool for building type-safe data layer, turn Markdown / MDX, YAML, JSON, or other files into app's data layer with Zod schema.
 
-  return (
-    <>
-      <div ref={refs.setReference} />
-      <div ref={refs.setFloating} style={floatingStyles} />
-    </>
-  );
+<CodeBlock title="Terminal">
+```bash
+npm install velite -D
+```
+</CodeBlock>
+
+**Rehype-pretty-code** is a plugin powered by the **shiki** syntax highlighter that provides beautiful code blocks for Markdown or Mdx. It works on both the server at build-time (avoiding runtime syntax highlighting) and on the client for dynamic highlighting.
+
+<CodeBlock title="Terminal">
+```bash
+npm install rehype-pretty-code
+```
+</CodeBlock>
+
+**Shiki** (式, a Japanese word for "Style") is a beautiful and powerful syntax highlighter based on TextMate grammar and themes, the same engine as VS Code's syntax highlighting. Provides very accurate and fast syntax highlighting for almost any mainstream programming language.
+
+<CodeBlock title="Terminal">
+```bash 
+npm install shiki
+```
+</CodeBlock>
+
+## Configurations
+
+### Configuring Velite
+
+In your velite config, import the functions and type from velite and rehype-pretty-code.
+
+<CodeBlock title="velite.config.ts">
+```tsx showLineNumbers
+import { defineConfig } from "velite";
+import rehypePrettyCode, { type Options } from "rehype-pretty-code";
+```
+</CodeBlock>
+
+Velite provides an object `mdx` which allows us to pass plugins for styling our code blocks in `defineConfig`. Pass the `rehypePrettyCode` into the rehype plugins.
+
+<CodeBlock title="velite.config.ts">
+```ts showLineNumbers {4} /rehypePrettyCode/
+export default defineConfig({
+  // other velite configurations
+  mdx: {
+      rehypePlugins: [rehypePrettyCode],
+    },
+});
+```
+</CodeBlock>
+
+Next, we add in the `rehype-pretty-code` options, checkout more on rehype options. [Rehype options](https://rehype-pretty.pages.dev/#options).
+
+<CodeBlock title="velite.config.ts">
+```ts showLineNumbers
+const rehypePrettyCodeOptions: Options = {
+  theme: "vesper", // default theme is: github-dark
+};
+
+export default defineConfig({
+  // ...
+})
+```
+</CodeBlock>
+
+Rehype Themes are gotten from **shiki**, checkout more on shiki themes. [Shiki themes](https://shiki.style/themes#themes). Pass the options to the `rehypePlugins` in the velite `defineConfig`.
+
+<CodeBlock title="velite.config.ts">
+```ts showLineNumbers {4} /rehypePrettyCodeOptions/
+export default defineConfig({
+  // other velite configurations
+  mdx: {
+      rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+    },
+});
+```
+</CodeBlock>
+
+### Styling Rehype Tags
+
+Now that our code blocks have syntax highlighting we need to add some additional styles for personalization. This will be done in a `.css` file and imported into our main css file.
+
+<Callout variant="info">
+These are my own styles. Please feel free to customize and use them.
+</Callout>
+
+<CodeBlock title="mdx.css">
+```css showLineNumbers
+figure[data-rehype-pretty-code-figure] {
+  @apply mt-0 p-0.5 border-2 border-muted-foreground/20 rounded-t-none rounded-b-lg
+}
+
+figure[data-rehype-pretty-code-figure] pre {
+  @apply py-4 px-0 rounded-t-none bg-muted/10;
+}
+
+figure[data-rehype-pretty-code-figure] code {
+  @apply text-sm !leading-loose p-0;
+}
+
+figure[data-rehype-pretty-code-figure] code[data-line-numbers] {
+  counter-reset: line;
+}
+
+figure[data-rehype-pretty-code-figure] code[data-line-numbers] > span[data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block text-right text-muted-foreground w-4;
+}
+
+figure[data-rehype-pretty-code-figure] span[data-line] {
+  @apply border-l-4 border-l-transparent px-3;
+}
+
+figure[data-rehype-pretty-code-figure] span[data-highlighted-line] {
+  /* background: rgba(200, 200, 255, 0.1); */
+  @apply border-l-yellow-400 bg-yellow-100/10;
+}
+
+figure[data-rehype-pretty-code-figure] mark[data-highlighted-chars] {
+  @apply rounded bg-zinc-700 shadow-sm p-0.5;
+}
+
+[data-rehype-pretty-code-figure] [data-chars-id] {
+  @apply border-b-2 p-1 shadow-none;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply before:content-none after:content-none
+}
+
+span[data-rehype-pretty-code-figure] code span[data-line] {
+  @apply rounded
 }
 ```
+</CodeBlock>
 
-## Word Highlighting
+Add the file as an import in the main css file.
 
-Draw attention to a particular word or series of characters.
+<CodeBlock title="main.css">
+```css showLineNumbers {3}
+@tailwind base;
 
-```js /floatingStyles/
-import { useFloating } from "@floating-ui/react";
+@import "./mdx.css";
 
-function MyComponent() {
-  const { refs, floatingStyles } = useFloating();
-
-  return (
-    <>
-      <div ref={refs.setReference} />
-      <div ref={refs.setFloating} style={floatingStyles} />
-    </>
-  );
-}
+@tailwind components;
+@tailwind utilities;
 ```
+</CodeBlock>
 
-## ANSI Highlighting
+Congratulations, you have added syntax highlighting to your markdown code blocks.
 
-```ansi
-[0;36m  vite v5.0.0[0;32m dev server running at:[0m
+## Components
 
-  > Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m
-  > Network: [0;2muse `--host` to expose[0m
+Lets us further improve the experience of our code blocks by adding the following.
 
-  [0;36mready in 125ms.[0m
+- Copy button
+- Code block wrapper
 
-[0;2m8:38:02 PM[0m [0;36;1m[vite][0m [0;32mhmr update [0;2m/src/App.jsx
+I took inspiration from [Hosna Qasmei](https://hosnaqasmei.com/). A seasoned Software Developer and creator. You can checkout her [YouTube](https://www.youtube.com/@hqasmei). Thanks Hosna.
+
+### Copy Button
+
+For the copy button we would create two plugins for rehype-pretty-code to consume. A `preProcess` and `postProcess` plugin.
+These plugins will take our code passed, transform it into raw plaintext, and save it to the clipboard.
+
+Import the following.
+
+<CodeBlock title="rehype-pretty-raw.ts">
+```ts
+import { visit } from "unist-util-visit";
 ```
+</CodeBlock>
 
-Inline ANSI: `> Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m{:ansi}`
+**Unist-util-visit** is utility for working with [unist](https://github.com/syntax-tree/unist) as it lets you walk the tree of a given node.
 
----
-
-### Kitchen Sink Meta Strings
-
-```js showLineNumbers {2-4} title="isEven.js" /console/ caption="If-else statement proximity."
-function isEven(number) {
-  if (number === 1) {
-    return false;
-  } else if (number === 2) {
-    return true;
-  } else if (number === 3) {
-    return false;
-  } else if (number === 4) {
-    return true;
-  } else if (number === 5) {
-    return false;
-  } else if (number === 6) {
-    return true;
-  } else if (number === 7) {
-    return false;
-  } else if (number === 8) {
-    return true;
-  } else if (number === 9) {
-    return false;
-  } else if (number === 10) {
-    return true;
-  } else {
-    return "Number is not between 1 and 10.";
-  }
-}
-
-// Example usage:
-console.log(isEven(3)); // Should return false
-console.log(isEven(4)); // Should return true
-console.log(isEven(11)); // Should return "Number is not between 1 and 10."
+<CodeBlock title="Terminal">
+```bash
+npm install unist-util-visit
 ```
+</CodeBlock>
+
+Create a `preProcess` function that take a parameter `tree` of type `any`.
+
+<CodeBlock title="rehype-pretty-raw.ts">
+```ts
+export const preProcess = () => (tree: any) => {
+  visit(tree, (node) => {
+    if (node?.type === "element" && node?.tagName === "pre") {
+      const [codeEl] = node.children;
+
+      if (codeEl.tagName !== "code") return;
+
+      node.raw = codeEl.children?.[0].value;
+    }
+  });
+};
+```
+</CodeBlock>
