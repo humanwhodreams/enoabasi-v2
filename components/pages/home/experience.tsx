@@ -1,5 +1,4 @@
 import { ExperienceCard } from "@/components/experience-card";
-import { Placeholder } from "@/components/place-holder";
 import { SectionContainer } from "@/components/section-container";
 import { SectionSubHeader } from "@/components/section-headings";
 import { works } from "@/lib/works";
