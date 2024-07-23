@@ -16,16 +16,16 @@ const navLinks = [
     href: "/",
     icon: Home,
   },
-  {
-    label: "About",
-    href: "/about",
-    icon: Origami,
-  },
-  {
-    label: "Projects",
-    href: "/projects",
-    icon: DraftingCompass,
-  },
+  // {
+  //   label: "About",
+  //   href: "/about",
+  //   icon: Origami,
+  // },
+  // {
+  //   label: "Projects",
+  //   href: "/projects",
+  //   icon: DraftingCompass,
+  // },
   {
     label: "Blog",
     href: "/blog",
