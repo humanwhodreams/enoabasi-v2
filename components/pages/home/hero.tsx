@@ -8,10 +8,8 @@ export function Hero() {
       <HeroProfile />
       <SectionSubHeader text="A little about me" />
       <p className="font-sans text-muted-foreground">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quam,
-        recusandae totam accusantium est ipsum architecto voluptate dolore atque
-        magnam eveniet accusamus dolores illo autem ratione similique
-        perferendis, facere deleniti!
+        I am Enoabasi Essien, a software developer, writer, and car enthusiast based in Abuja, Nigeria.<br/><br/>
+        From Design &rarr; Development &rarr; Deployment. I help build products that contribute to society by solving problems to meet end-users needs. I am eager to improve myself in the software industry and work with great minded people.
       </p>
     </SectionContainer>
   );
