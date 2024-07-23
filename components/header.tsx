@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { NavLink } from "./nav-link";
 import { PanelLeftClose } from "lucide-react";
 import { Separator } from "./ui/separator";
-import { ToggleThemeV2 } from "./toggle-theme-v2";
 import { TooltipLink } from "./tooltip-link";
 
 export function Header() {
@@ -40,8 +39,6 @@ export function Header() {
               </TooltipLink>
             );
           })}
-          <Separator orientation="vertical" className="w-[2px] h-5 rounded" />
-          <ToggleThemeV2 />
         </div>
 
         <div className="flex lg:hidden">
