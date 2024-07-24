@@ -18,7 +18,7 @@ export const works: Works[] = [
     },
     roles: [
       "Conducting research on web technologies & architectures for building better products.",
-      "Spending time honing my skills in Software development.",
+      "Spending time honing my skills in software development.",
       "Helping make a better web in the OSS community.",
       "Building connections with partners & clients.",
     ],

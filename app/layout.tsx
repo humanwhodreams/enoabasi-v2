@@ -6,7 +6,6 @@ import { Header } from "@/components/header";
 import type { Metadata } from "next";
 import { Providers } from "./providers";
 import { cn } from "@/lib/utils";
-import { inter } from "@/fonts";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -23,8 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "antialiased flex flex-col items-center justify-between min-h-[100dvh] relative",
-          inter.className,
+          "antialiased flex flex-col items-center justify-between min-h-[100dvh] relative font-sans",
           GeistSans.variable
         )}
       >
